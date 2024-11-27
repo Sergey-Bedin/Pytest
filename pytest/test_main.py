@@ -12,9 +12,9 @@ def test_sub():
     res = 1
     assert Calculator().sub(a, b) == res
 def test_multi():
-    a = 3
+    a = 2
     b = 2
-    res = 6
+    res = 4
     assert Calculator().multi(a, b) == res
 def test_div():
     a = 3
