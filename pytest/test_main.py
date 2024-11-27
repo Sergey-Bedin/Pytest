@@ -1,23 +1,46 @@
+import pytest
 from src.main import Calculator
 
+class Test_Calculator:
 
-def test_add():
-    a = 3
-    b = 2
-    res = 5
-    assert Calculator().add(a, b) == res
-def test_sub():
-    a = 3
-    b = 2
-    res = 1
-    assert Calculator().sub(a, b) == res
-def test_multi():
-    a = 2
-    b = 2
-    res = 4
-    assert Calculator().multi(a, b) == res
-def test_div():
-    a = 3
-    b = 2
-    res = 1.5
-    assert Calculator().div(a, b) == res
+    @pytest.mark.parametrize(
+            "a, b, res",
+            [
+                (3, 2, 5),
+                (5, -3, 2)
+            ]
+    )
+    def test_add(self, a, b, res):
+        assert Calculator().add(a, b) == res
+
+
+    @pytest.mark.parametrize(
+                "a, b, res",
+                [
+                    (3, 2, 1),
+                    (5, -3, 8)
+                ]
+        )
+    def test_sub(self, a, b, res):
+        assert Calculator().sub(a, b) == res
+    
+
+    @pytest.mark.parametrize(
+            "a, b, res",
+            [
+                (3, 2, 6),
+                (5, -3, -15)
+            ]
+    )
+    def test_multi(self, a, b, res):
+        assert Calculator().multi(a, b) == res
+    
+    @pytest.mark.parametrize(
+            "a, b, res",
+            [
+                (3, 2, 1.5),
+                (6, -3, -2)
+            ]
+    )
+    def test_div(self, a, b, res):
+        assert Calculator().div(a, b) == res
